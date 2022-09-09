@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Contacts</title>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+    <link href="css/contacts.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 id="title">Contacts</h1>
+
+    <div id="searchBar">
+      <br />
+      <input type="text" id="searchText" />
+      <button
+        type="button"
+        id="searchContactsButton"
+        class="buttons"
+        onclick="searchContacts();"
+      >
+        Search Contacts</button
+      ><br />
+      <span id="colorSearchResult"></span>
+      <p id="colorList"></p>
+      <br /><br />
+
+      <!-- <input type="text" id="colorText" placeholder="Color To Add" />
+      <button
+        type="button"
+        id="addColorButton"
+        class="buttons"
+        onclick="addColor();"
+      >
+        Add Contact</button
+      ><br />
+      <span id="colorAddResult"></span> -->
+    </div>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dan</td>
+          <td>Stevens</td>
+          <td>danstevens@gmail.com</td>
+          <td>4078889999</td>
+          <td>9/9/22</td>
+        </tr>
+        <tr>
+          <td>Kelly</td>
+          <td>Barge</td>
+          <td>kellybarge@gmail.com</td>
+          <td>3057778888</td>
+          <td>9/9/22</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="addColor">
+      <button
+        type="button"
+        id="searchContactsButton"
+        class="buttons"
+        onclick="searchContacts();"
+      >
+        Add Contact
+      </button>
+    </div>
+  </body>
+</html>
