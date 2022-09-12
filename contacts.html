@@ -47,6 +47,7 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Date Created</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -56,13 +57,44 @@
           <td>danstevens@gmail.com</td>
           <td>4078889999</td>
           <td>9/9/22</td>
+          <td>
+            <input
+              type="button"
+              id="edit_button1"
+              value="Edit"
+              class="buttons"
+              onclick="editContact()"
+            />
+            <input
+              type="button"
+              value="Delete"
+              class="buttons"
+              onclick="deleteContact()"
+            />
+          </td>
         </tr>
+
         <tr>
           <td>Kelly</td>
           <td>Barge</td>
           <td>kellybarge@gmail.com</td>
           <td>3057778888</td>
           <td>9/9/22</td>
+          <td>
+            <input
+              type="button"
+              id="edit_button1"
+              value="Edit"
+              class="buttons"
+              onclick="editContact()"
+            />
+            <input
+              type="button"
+              value="Delete"
+              class="buttons"
+              onclick="deleteContact()"
+            />
+          </td>
         </tr>
       </tbody>
     </table>
