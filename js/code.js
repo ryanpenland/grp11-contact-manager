@@ -146,6 +146,12 @@ function addContact() {
      if (typeof contactLastName === 'string' && contactLastName.trim() === '') throw "Please fill in all fields";
      if (typeof email === 'string' && email.trim() === '') throw "Please fill in all fields";
      if (typeof phone === 'string' && phone.trim() === '') throw "Please fill in all fields";
+
+     // Make sure email is valid
+     if (validateEmail(email) == false) throw "Please enter a valid email";
+
+     // Make sure phone is valid
+     if (validatePhone(phone) == false) throw "Please enter a valid phone-number";
   }
   catch(err) {
      document.getElementById("addContactResult").innerHTML = err;
@@ -211,3 +217,22 @@ function searchColor() {
     document.getElementById("colorSearchResult").innerHTML = err.message;
   }
 }
+
+// ----------------- REGEX VALIDATIONS ----------------- //
+// Code courtesy of w3resource.com
+function validateEmail(email) {
+   if (email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
+      return true;
+   else
+      return false;
+}
+
+// Code courtesy of w3resources.com
+// Valid phones of the form {XXX XXX XXXX} {XXX.XXX.XXXX} {XXX-XXX-XXXX}
+function validatePhone(phone) {
+   if (phone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))
+      return true;
+   else
+      return false;
+}
+// ----------------------------------------------------- //
