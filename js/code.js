@@ -108,7 +108,7 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function addColor()
+function addContact()
 {
 	let newContact = document.getElementById("contactText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
