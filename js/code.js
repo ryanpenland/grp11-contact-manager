@@ -42,7 +42,7 @@ function doLogin() {
 
         saveCookie();
 
-        window.location.href = "Contacts.html";
+        window.location.href = "contacts.html";
       }
     };
     xhr.send(jsonPayload);
