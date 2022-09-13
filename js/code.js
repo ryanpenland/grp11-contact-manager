@@ -52,12 +52,8 @@ function doLogin() {
 }
 
 function doRegister() {
-  userId = 0;
-  firstName = "";
-  lastName = "";
-
-  let firstName = document.getElementById("registerFirst").value;
-  let lastName = document.getElementById("registerLast").value;
+  firstName = document.getElementById("registerFirst").value;
+  lastName = document.getElementById("registerLast").value;
   let login = document.getElementById("registerName").value;
   let password = document.getElementById("registerPassword").value;
   //	var hash = md5( password );
