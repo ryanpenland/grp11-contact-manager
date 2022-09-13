@@ -133,14 +133,18 @@ function doLogout() {
   window.location.href = "index.html";
 }
 
-function addColor() {
-  let newColor = document.getElementById("colorText").value;
-  document.getElementById("colorAddResult").innerHTML = "";
+function addContact() {
 
-  let tmp = { color: newColor, userId, userId };
+  let contactFirstName = document.getElementById("firstName").value;
+  let contactLastName = document.getElementById("lastName").value;
+  let email = document.getElementById("firstName").value;
+  let phone = document.getElementById("firstName").value;
+  document.getElementById("addContactResult").innerHTML = "";
+
+  let tmp = { firstName: contactFirstName, lastName: contactLastName, email: email, phone: phone, userID: userId };
   let jsonPayload = JSON.stringify(tmp);
 
-  let url = urlBase + "/AddColor." + extension;
+  let url = urlBase + "/AddContact." + extension;
 
   let xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
@@ -148,13 +152,13 @@ function addColor() {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("colorAddResult").innerHTML =
-          "Color has been added";
+        document.getElementById("addContactResult").innerHTML =
+          "Contact added";
       }
     };
     xhr.send(jsonPayload);
   } catch (err) {
-    document.getElementById("colorAddResult").innerHTML = err.message;
+    document.getElementById("addContactResult").innerHTML = err.message;
   }
 }
 

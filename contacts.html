@@ -27,16 +27,6 @@
       <p id="colorList"></p>
       <br /><br />
 
-      <!-- <input type="text" id="colorText" placeholder="Color To Add" />
-      <button
-        type="button"
-        id="addColorButton"
-        class="buttons"
-        onclick="addColor();"
-      >
-        Add Contact</button
-      ><br />
-      <span id="colorAddResult"></span> -->
     </div>
 
     <table class="styled-table">
@@ -50,64 +40,16 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Dan</td>
-          <td>Stevens</td>
-          <td>danstevens@gmail.com</td>
-          <td>4078889999</td>
-          <td>9/9/22</td>
-          <td>
-            <input
-              type="button"
-              id="edit_button1"
-              value="Edit"
-              class="buttons"
-              onclick="editContact()"
-            />
-            <input
-              type="button"
-              value="Delete"
-              class="buttons"
-              onclick="deleteContact()"
-            />
-          </td>
-        </tr>
-
-        <tr>
-          <td>Kelly</td>
-          <td>Barge</td>
-          <td>kellybarge@gmail.com</td>
-          <td>3057778888</td>
-          <td>9/9/22</td>
-          <td>
-            <input
-              type="button"
-              id="edit_button1"
-              value="Edit"
-              class="buttons"
-              onclick="editContact()"
-            />
-            <input
-              type="button"
-              value="Delete"
-              class="buttons"
-              onclick="deleteContact()"
-            />
-          </td>
-        </tr>
-      </tbody>
     </table>
 
     <div id="addColor">
-      <button
-        type="button"
-        id="searchContactsButton"
-        class="buttons"
-        onclick="searchContacts();"
-      >
-        Add Contact
-      </button>
+      <span id="inner-title">ADD CONTACT</span> <br />
+      <input type="text" id="firstName" placeholder="First Name" /> <br />
+      <input type="text" id="lastName" placeholder="Last Name" /> <br />
+      <input type="text" id="email" placeholder="Email" /> <br />
+      <input type="text" id="phone" placeholder="Phone Number" /> <br />
+      <button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button>
+      <span id="addContactResult"></span>
     </div>
   </body>
 </html>
