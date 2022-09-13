@@ -11,30 +11,41 @@ body {
   color: #ffffff;
 }
 
-#loginDiv {
-  font-size: 30px;
-  width: 70%;
-  margin-left: 15%;
-  padding: 25px;
-  background-color: #2f2f2f;
-  border-radius: 25px;
+#label
+{
+    color: #FFFFFF;
 }
 
-#loggedInDiv {
-  font-size: 30px;
-  width: 70%;
-  margin-left: 15%;
-  padding: 25px;
-  background-color: #2f2f2f;
-  border-radius: 25px;
+#loginDiv
+{
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #2f2f2f;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
 }
 
-#accessUIDiv {
-  font-size: 30px;
-  width: 70%;
-  margin-left: 15%;
-  padding: 25px;
-  background-color: #2f2f2f;
+#loggedInDiv
+{
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;
+    margin: auto;
+    text-align: center;
+}
+
+#accessUIDiv
+{
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background-color: #b2b2b2;
   border-radius: 25px;
 }
 
@@ -47,18 +58,32 @@ body {
   border-radius: 25px;
 }
 
-.buttons {
+.buttons
+{
+    font-size: 30px;
+    border-radius: 25px;
+    width: 40%;
+    margin-left: 25%;
+    margin: auto;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.buttons:hover{
+  background-color: #ffffffc8;
+  color: #FFFFFF;
+  opacity: 50%;
+}
+
+#footer
+{
+    font-size: 20px;
+}
+#loginFirst {
   font-size: 30px;
-  border-radius: 25px;
-  width: 50%;
-  margin-left: 25%;
-  font-family: "Ubuntu", sans-serif;
 }
-
-.buttons:hover {
-  background-color: #b5babe;
+#loginLast {
+  font-size: 30px;
 }
-
 #loginName {
   font-size: 30px;
 }
@@ -82,14 +107,13 @@ input[type="password"] {
   font-family: "Ubuntu", sans-serif;
 }
 
-input[type="register-text"],
-input[type="register-password"] {
+input[type="register-text"],input[type="register-password"]{
   border-radius: 25px;
   text-align: center;
-  width: 50%;
+  width: 70%;
   margin-left: 10%;
   margin-bottom: 2%;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #inner-title {
