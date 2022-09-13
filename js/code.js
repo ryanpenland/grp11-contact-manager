@@ -56,13 +56,13 @@ function doRegister() {
   firstName = "";
   lastName = "";
 
-  let firstName = document.getElementById("resgisterFirst").value;
-  let lastName = document.getElementById("resgisterLast").value;
-  let login = document.getElementById("resgisterName").value;
-  let password = document.getElementById("resgisterPassword").value;
+  let firstName = document.getElementById("registerFirst").value;
+  let lastName = document.getElementById("registerLast").value;
+  let login = document.getElementById("registerName").value;
+  let password = document.getElementById("registerPassword").value;
   //	var hash = md5( password );
 
-  document.getElementById("resgisterResult").innerHTML = "";
+  document.getElementById("registerResult").innerHTML = "";
 
   let tmp = {
     firstName: firstName,
@@ -86,7 +86,7 @@ function doRegister() {
     };
     xhr.send(jsonPayload);
   } catch (err) {
-    document.getElementById("resgisterResult").innerHTML = err.message;
+    document.getElementById("registerResult").innerHTML = err.message;
   }
 }
 
