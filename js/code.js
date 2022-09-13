@@ -137,8 +137,8 @@ function addContact() {
 
   let contactFirstName = document.getElementById("firstName").value;
   let contactLastName = document.getElementById("lastName").value;
-  let email = document.getElementById("firstName").value;
-  let phone = document.getElementById("firstName").value;
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
   document.getElementById("addContactResult").innerHTML = "";
 
   let tmp = { firstName: contactFirstName, lastName: contactLastName, email: email, phone: phone, userID: userId };
@@ -152,8 +152,8 @@ function addContact() {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("addContactResult").innerHTML =
-          "Contact added";
+         window.location.reload();
+         document.getElementById("addContactResult").innerHTML = "Contact added";
       }
     };
     xhr.send(jsonPayload);
