@@ -134,11 +134,24 @@ function doLogout() {
 }
 
 function addContact() {
-
   let contactFirstName = document.getElementById("firstName").value;
   let contactLastName = document.getElementById("lastName").value;
   let email = document.getElementById("email").value;
   let phone = document.getElementById("phone").value;
+
+  // Error-handling for "Add Contact" form
+  try {
+     // Make sure all form elements are filled in
+     if (typeof contactFirstName === 'string' && contactFirstName.trim() === '') throw "Please fill in all fields";
+     if (typeof contactLastName === 'string' && contactLastName.trim() === '') throw "Please fill in all fields";
+     if (typeof email === 'string' && email.trim() === '') throw "Please fill in all fields";
+     if (typeof phone === 'string' && phone.trim() === '') throw "Please fill in all fields";
+  }
+  catch(err) {
+     document.getElementById("addContactResult").innerHTML = err;
+     return;
+  }
+
   document.getElementById("addContactResult").innerHTML = "";
 
   let tmp = { firstName: contactFirstName, lastName: contactLastName, email: email, phone: phone, userID: userId };
