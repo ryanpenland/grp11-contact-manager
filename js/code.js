@@ -120,8 +120,7 @@ function readCookie() {
   if (userId < 0) {
     window.location.href = "index.html";
   } else {
-    document.getElementById("userName").innerHTML =
-      "Logged in as " + firstName + " " + lastName;
+    // document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
   }
 }
 
@@ -131,6 +130,68 @@ function doLogout() {
   lastName = "";
   document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
   window.location.href = "index.html";
+}
+
+function loadContacts() {
+   let currentPage = 1;
+   let LIMIT = 10;
+
+   let offset = (currentPage - 1) * LIMIT;
+
+   let tmp = {userID: userId, offset: offset, limit: LIMIT};
+   let jsonPayload = JSON.stringify(tmp);
+
+   let url = urlBase + "/LoadContacts." + extension;
+
+   let xhr = new XMLHttpRequest();
+   xhr.open("POST", url, true);
+   xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+   try {
+      xhr.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+            let jsonObject = JSON.parse(xhr.responseText);
+            let numContacts = jsonObject.results.length;
+            let table = document.getElementById("contact-list");
+
+            // let row = table.insertRow(0);
+            // let fName = row.insertCell(0);
+            // fName.innerHTML = "Joshua";
+            // let lName = row.insertCell(1);
+            // lName.innerHTML = "Balila";
+            // let email = row.insertCell(2);
+            // email.innerHTML = "joshua@gmail.com";
+            // let phone = row.insertCell(3);
+            // phone.innerHTML = "111-222-3333";
+            // let created = row.insertCell(4);
+            // created.innerHTML = "";
+            // let actions = row.insertCell(5);
+            // actions.innerHTML = "";
+
+            // Print out <results> info into table format
+            for (let j = 0; j < numContacts; j++) {
+               // Add new row to table
+               let row = table.insertRow(j+1);
+
+               // Populate table fields
+               let fName = row.insertCell(0);
+               fName.innerHTML = jsonObject.results[j].firstName;
+               let lName = row.insertCell(1);
+               lName.innerHTML = jsonObject.results[j].lastName;
+               let email = row.insertCell(2);
+               email.innerHTML = jsonObject.results[j].email;
+               let phone = row.insertCell(3);
+               phone.innerHTML = jsonObject.results[j].phone;
+               let created = row.insertCell(4);
+               created.innerHTML = "";
+               let actions = row.insertCell(5);
+               actions.innerHTML = "";
+            }
+         }
+      };
+      xhr.send(jsonPayload);
+   } catch(err) {
+      document.getElementById("contact-list").innerHTML = err.message;
+   }
 }
 
 function addContact() {

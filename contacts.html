@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body onload="readCookie();loadContacts();">
     <h1 id="title">Contacts</h1>
 
     <div id="searchBar">
@@ -40,6 +40,17 @@
           <th>Actions</th>
         </tr>
       </thead>
+
+      <!-- <tr>
+         <td>Joshua</td>
+         <td>Balila</td>
+         <td>joshua@gmail.com</td>
+         <td>123-456-7878</td>
+         <td></td>
+         <td></td>
+      </tr> -->
+
+    <span id="loadContactsResult"></span>
     </table>
 
     <div id="addColor">
