@@ -5,78 +5,43 @@ body {
 #title {
   font-size: 40px;
   width: 100%;
-  margin: 2% 5%;
+  margin-top: 2%;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
   color: #ffffff;
 }
 
-#label
-{
-    color: #FFFFFF;
+#registerLabel {
+  color: #ffffff;
 }
 
-#loginDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #2f2f2f;
-    border-radius: 25px;
-    margin: auto;
-    text-align: center;
-}
-
-#loggedInDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-    margin: auto;
-    text-align: center;
-}
-
-#accessUIDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-  border-radius: 25px;
-}
-
-#contactTable {
+#loginDiv {
   font-size: 30px;
   width: 70%;
-  margin-left: 15%;
   padding: 25px;
   background-color: #2f2f2f;
   border-radius: 25px;
+  margin: auto;
+  text-align: center;
 }
 
-.buttons
-{
-    font-size: 30px;
-    border-radius: 25px;
-    width: 40%;
-    margin-left: 25%;
-    margin: auto;
-    font-family: 'Ubuntu', sans-serif;
+.buttons {
+  font-size: 30px;
+  border-radius: 25px;
+  width: 40%;
+  margin-left: 25%;
+  margin: auto;
+  font-family: "Ubuntu", sans-serif;
 }
 
-.buttons:hover{
+.buttons:hover {
   background-color: #ffffffc8;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 50%;
 }
 
-#footer
-{
-    font-size: 20px;
+#footer {
+  font-size: 20px;
 }
 #loginFirst {
   font-size: 30px;
@@ -97,6 +62,7 @@ body {
   font-size: 30px;
 }
 
+/* Login Page Input Boxes */
 input[type="text"],
 input[type="password"] {
   border-radius: 25px;
@@ -107,13 +73,15 @@ input[type="password"] {
   font-family: "Ubuntu", sans-serif;
 }
 
-input[type="register-text"],input[type="register-password"]{
+/* Register Page Input Boxes */
+input[type="register-text"],
+input[type="register-password"] {
   border-radius: 25px;
   text-align: center;
-  width: 70%;
+  width: 80%;
   margin-left: 10%;
   margin-bottom: 2%;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 #inner-title {
@@ -127,6 +95,7 @@ input[type="register-text"],input[type="register-password"]{
   color: #ffffff;
 }
 
+/* Login Error Text */
 #loginResult {
   display: inline-block;
   font-size: 0.8em;
@@ -145,31 +114,10 @@ input[type="register-text"],input[type="register-password"]{
   text-align: center;
 }
 
-#logoutButton {
-  width: 20%;
-  margin-left: 40%;
-}
-
 select {
   width: 30%;
   margin-left: 35%;
   margin-top: 2%;
   font-size: 0.75em;
   font-family: "Ubuntu", sans-serif;
-}
-
-#colorSearchResult {
-  display: none;
-}
-
-#colorAddResult {
-  display: inline-block;
-  font-size: 0.8em;
-  width: 90%;
-  text-align: center;
-  margin-left: 5%;
-  margin-top: 2%;
-  margin-bottom: 1%;
-  font-family: "Ubuntu", sans-serif;
-  color: #95060a;
 }
