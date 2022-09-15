@@ -11,7 +11,7 @@
   </head>
   <body>
     <div style="text-align: center">
-      <h1 id="title">Welcome</h1>
+      <h1 id="title">Contact Manager</h1>
     </div>
     <div id="loginDiv">
       <span id="inner-title">Create an account</span><br />
@@ -23,14 +23,9 @@
       <input type="register-text" id="registerName" placeholder="" /><br />
       <label for="registerPassword" id="registerLabel"><b>Password</b></label>
       <input type="register-text" id="registerPassword" placeholder="" /><br />
-      <button
-        type="button"
-        id="loginButton"
-        class="buttons"
-        onclick="doRegister();"
-      >
-        Register
-      </button>
+      <div class="btn btn-one" onclick="doRegister();">
+        <span>Register</span>
+      </div>
       <span id="registerResult"></span>
     </div>
     <div id="footer" style="text-align: center">

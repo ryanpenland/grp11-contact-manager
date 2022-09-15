@@ -13,7 +13,7 @@ body {
 
 #inner-title {
   display: inline-block;
-  font-size: 28px;
+  font-size: 25px;
   width: 90%;
   text-align: center;
   margin-bottom: 3%;
@@ -21,43 +21,29 @@ body {
   color: #ffffff;
 }
 
-#registerLabel {
+#loginDiv {
   font-size: 30px;
+  width: 35%;
+  padding: 20px 40px 40px 40px;
+  border-radius: 25px; /* rounded corners */
+  margin: auto;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  background-color: #2f2f2f;
+}
+
+#registerLabel {
+  font-size: 25px;
   color: #ffffff;
 }
 
 #loginLabel {
-  font-size: 30px;
+  font-size: 25px;
   color: #ffffff;
-}
-
-#loginDiv {
-  font-size: 30px;
-  width: 70%;
-  padding: 25px;
-  background-color: #2f2f2f;
-  border-radius: 25px;
-  margin: auto;
-  text-align: center;
-}
-
-.buttons {
-  font-size: 30px;
-  border-radius: 25px;
-  width: 40%;
-  margin-left: 25%;
-  margin: auto;
-  font-family: "Ubuntu", sans-serif;
-}
-
-.buttons:hover {
-  background-color: #ffffffc8;
-  color: #ffffff;
-  opacity: 50%;
 }
 
 #footer {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 #searchText {
@@ -68,11 +54,70 @@ body {
 input[type="login-text"],
 input[type="register-text"] {
   border-radius: 25px;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   width: 80%;
   margin-bottom: 4%;
   font-family: "Ubuntu", sans-serif;
+}
+
+/* Button Styling and Animation */
+/* From https://codepen.io/rauldronca/pen/mEXomp */
+.btn {
+  font-size: 30px;
+  border-radius: 25px;
+  width: 40%;
+  margin: auto;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+}
+.btn-one {
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+}
+.btn-one span {
+  transition: all 0.3s;
+}
+.btn-one::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.btn-one::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
 }
 
 /* Login Error Text */
@@ -85,11 +130,4 @@ input[type="register-text"] {
   margin-bottom: 2%;
   font-family: "Ubuntu", sans-serif;
   color: #95060a;
-}
-
-#userName {
-  display: inline-block;
-  width: 80%;
-  margin-left: 10%;
-  text-align: center;
 }
