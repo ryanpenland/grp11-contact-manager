@@ -3,30 +3,26 @@
     <title>Contacts</title>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
-    <link href="css/contacts.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu"
       rel="stylesheet"
     />
   </head>
-  <body onload="readCookie();loadContacts();">
+  <body>
+    <!--onload="readCookie();loadContacts();" add this in body tag later-->
     <h1 id="title">Contacts</h1>
 
     <div id="searchBar">
       <br />
       <input type="text" id="searchText" />
-      <button
-        type="button"
-        id="searchContactsButton"
-        class="buttons"
-        onclick="searchContacts();"
-      >
-        Search Contacts</button
-      ><br />
+      <div class="btn btn-one" onclick="searchContacts();">
+        <span>Search Contacts</span>
+      </div>
+      <br />
       <span id="colorSearchResult"></span>
       <p id="colorList"></p>
       <br /><br />
-
     </div>
 
     <table id="contact-list" class="styled-table">
@@ -50,7 +46,7 @@
          <td></td>
       </tr> -->
 
-    <span id="loadContactsResult"></span>
+      <span id="loadContactsResult"></span>
     </table>
 
     <div id="addColor">
@@ -59,7 +55,9 @@
       <input type="text" id="lastName" placeholder="Last Name" /> <br />
       <input type="text" id="email" placeholder="Email" /> <br />
       <input type="text" id="phone" placeholder="Phone Number" /> <br />
-      <button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button>
+      <div class="btn btn-one" onclick="addContact();">
+        <span>Add Contact</span>
+      </div>
       <span id="addContactResult"></span>
     </div>
   </body>
