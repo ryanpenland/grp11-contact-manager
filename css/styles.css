@@ -3,7 +3,7 @@ body {
 }
 
 #title {
-  font-size: 40px;
+  font-size: 45px;
   width: 100%;
   margin-top: 1%;
   text-align: center;
@@ -13,7 +13,7 @@ body {
 
 #inner-title {
   display: inline-block;
-  font-size: 25px;
+  font-size: 30px;
   width: 90%;
   text-align: center;
   margin-bottom: 3%;
@@ -67,7 +67,6 @@ input[type="register-text"] {
   font-size: 30px;
   border-radius: 25px;
   width: 40%;
-  margin: auto;
   font-family: "Ubuntu", sans-serif;
   cursor: pointer;
 }
@@ -75,6 +74,7 @@ input[type="register-text"] {
   color: #fff;
   transition: all 0.3s;
   position: relative;
+  margin: auto;
 }
 .btn-one span {
   transition: all 0.3s;
@@ -123,13 +123,12 @@ input[type="register-text"] {
 /* Login Error Text */
 #loginResult {
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 25px;
   width: 90%;
   text-align: center;
-  margin-left: 5%;
-  margin-bottom: 2%;
+  margin-top: 2%;
   font-family: "Ubuntu", sans-serif;
-  color: #95060a;
+  color: #e44b50;
 }
 
 /* CONTACTS PAGE STYLES BELOW */
