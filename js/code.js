@@ -201,7 +201,8 @@ function loadContacts() {
                let created = row.insertCell(4);
                created.innerHTML = "";
                let actions = row.insertCell(5);
-               actions.innerHTML = "";
+               actions.innerHTML = '<button type="button" onclick="updateContact();">Update</button>';
+               actions.innerHTML += '<button type="button" onclick="deleteContact(' + jsonObject.results[j].ID + ');">Delete</button>';
             }
          }
       };
@@ -209,6 +210,41 @@ function loadContacts() {
    } catch(err) {
       document.getElementById("contact-list").innerHTML = err.message;
    }
+}
+
+function updateContact() {
+
+}
+
+function deleteContact(contactID) {
+   // Confirm that User wants to delete contact
+   let confirmation = "Are you sure you want to delete this contact?";
+   if (!window.confirm(confirmation)) return;
+
+   // Set up variables for sending JSON payload to Delete.php
+   let tmp = {ID: contactID};
+   let jsonPayload = JSON.stringify(tmp);
+
+   let url = urlBase + "/DeleteContact." + extension;
+
+   let xhr = new XMLHttpRequest();
+   xhr.open("POST", url, true);
+   xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+   try {
+      xhr.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+            document.location.reload();
+            // TODO: Add delete confirmation message
+         }
+      };
+      xhr.send(jsonPayload);
+   } catch(err) {
+      // TODO: Add error-handling message
+   }
+}
+
+function searchContacts() {
+
 }
 
 function addContact() {
@@ -255,10 +291,6 @@ function addContact() {
   } catch (err) {
     document.getElementById("addContactResult").innerHTML = err.message;
   }
-}
-
-function searchContacts() {
-
 }
 
 // function searchColor() {

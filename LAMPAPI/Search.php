@@ -12,7 +12,7 @@
       returnWithError($conn->connect_error);
    else {
       // Select columns to send as JSON payload using wildcards w/ search
-      $stmt = $conn->prepare("SELECT firstName, lastName, email, phone FROM Contacts WHERE ((firstName like ? OR lastName like ? ) AND UserID = ?) LIMIT ?, ?;");
+      $stmt = $conn->prepare("SELECT firstName, lastName, email, phone, ID FROM Contacts WHERE ((firstName like ? OR lastName like ? ) AND UserID = ?) LIMIT ?, ?;");
       $contactName = "%" . $inData["search"] . "%";
       $stmt->bind_param("ssiii", $contactName, $contactName, $inData["userID"], $inData["offset"], $inData["limit"]);
       $stmt->execute();
@@ -29,7 +29,8 @@
          $searchResults .= '{"firstName": "' . $row["firstName"] . '", ';     // firstName
          $searchResults .= '"lastName": "' . $row["lastName"] . '", ';        // lastName
          $searchResults .= '"email": "' . $row["email"] . '", ';              // email
-         $searchResults .= '"phone": "' . $row["phone"] . '"}';               // phone
+         $searchResults .= '"phone": "' . $row["phone"] . '", ';              // phone
+         $searchResults .= '"ID": "'. $row["ID"] . '"}';                      // ID
       }
 
       // No Contacts with search-parameters found in database
