@@ -10,22 +10,6 @@ let lastName = "";
 let search = "";
 let currentPage = 1;
 let LIMIT = 10;
-let offset = (currentPage - 1) * LIMIT;
-
-// function addLoadEvent(func) {
-//    var oldonload = window.onload();
-//    if (typeof window.onload != 'function') {
-//       window.onload = func;
-//    }
-//    else {
-//       window.onload = function() {
-//          if (oldonload) {
-//             oldonload();
-//          }
-//          func();
-//       }
-//    }
-// }
 
 function doLogin() {
   userId = 0;
@@ -114,8 +98,6 @@ function saveCookie() {
     lastName +
     ",userId=" +
     userId +
-    ",currentPage=" +
-    currentPage +
     ";expires=" +
     date.toGMTString();
 }
@@ -132,7 +114,6 @@ function readCookie() {
     if (tokens[0] == "firstName") firstName = tokens[1];
     else if (tokens[0] == "lastName") lastName = tokens[1];
     else if (tokens[0] == "userId") userId = parseInt(tokens[1].trim());
-    else if (tokens[0] == "currentPage") currentPage = parseInt(tokens[1].trim());
     }
 
   if (userId < 0) {
@@ -154,16 +135,42 @@ function resetTable() {
    let table = document.getElementById("contact-list");
    let rowCount = table.rows.length;
    for (let i = 1; i < rowCount; i++)
-      table.deleteRow(i);
+      table.deleteRow(1);
+}
+
+function decPage() {
+   currentPage--;
+   resetTable();
+   loadContacts();
+}
+
+function incPage() {
+   currentPage++;
+   resetTable();
+   loadContacts();
+}
+
+function showPage() {
    window.alert(currentPage);
 }
 
+function displayButtons() {
+   let buttonLocation = document.getElementById("pageButtons");
+   buttonLocation.innerHTML = "";
+   if (currentPage > 1)
+      buttonLocation.innerHTML = '<button type="button" onclick="decPage();">Decrement Page</button>';
+   if (currentPage < 3)
+      buttonLocation.innerHTML += '<button type="button" onclick="incPage();">Increment Page</button>';
+}
+
 function loadContacts() {
-   // currentPage = document.getElementById("page-number").value;    NEED TO IMPLEMENT PAGE-NUMBER SYSTEM
+   displayButtons();
+
    let table = document.getElementById("contact-list");
    let numContacts = 0;
+   let offset = (currentPage - 1) * LIMIT;
 
-   let tmp = {search: search, userID: userId, offset: offset, limit: limit};
+   let tmp = {search: search, userID: userId, offset: offset, limit: LIMIT};
    let jsonPayload = JSON.stringify(tmp);
 
    let url = urlBase + "/Search." + extension;
@@ -229,8 +236,6 @@ function addContact() {
      return;
   }
 
-  document.getElementById("addContactResult").innerHTML = "";
-
   let tmp = { firstName: contactFirstName, lastName: contactLastName, email: email, phone: phone, userID: userId };
   let jsonPayload = JSON.stringify(tmp);
 
@@ -242,7 +247,7 @@ function addContact() {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-         window.location.reload();
+         document.location.reload();
          document.getElementById("addContactResult").innerHTML = "Contact added";
       }
     };
