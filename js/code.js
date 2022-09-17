@@ -4,6 +4,7 @@ const extension = "php";
 let userId = 0;
 let firstName = "";
 let lastName = "";
+let search = "";
 
 function doLogin() {
   userId = 0;
@@ -132,16 +133,30 @@ function doLogout() {
   window.location.href = "index.html";
 }
 
+function resetTable() {
+   let table = document.getElementById("contact-list");
+   let rowCount = table.rows.length;
+   for (let i = 1; i < rowCount; i++)
+      table.deleteRow(i);
+}
+
 function loadContacts() {
+   if (userId <= 0)
+      readCookie();
+   resetTable();
+
    let currentPage = 1;
-   let LIMIT = 10;
+   let limit = 10;
+   let offset = (currentPage - 1) * limit;
+   search = "";
 
-   let offset = (currentPage - 1) * LIMIT;
+   let table = document.getElementById("contact-list");
+   let numContacts = 0;
 
-   let tmp = {userID: userId, offset: offset, limit: LIMIT};
+   let tmp = {search: search, userID: userId, offset: offset, limit: limit};
    let jsonPayload = JSON.stringify(tmp);
 
-   let url = urlBase + "/LoadContacts." + extension;
+   let url = urlBase + "/Search." + extension;
 
    let xhr = new XMLHttpRequest();
    xhr.open("POST", url, true);
@@ -150,47 +165,32 @@ function loadContacts() {
       xhr.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
             let jsonObject = JSON.parse(xhr.responseText);
-            let numContacts = jsonObject.results.length;
-            let table = document.getElementById("contact-list");
-
-            // let row = table.insertRow(0);
-            // let fName = row.insertCell(0);
-            // fName.innerHTML = "Joshua";
-            // let lName = row.insertCell(1);
-            // lName.innerHTML = "Balila";
-            // let email = row.insertCell(2);
-            // email.innerHTML = "joshua@gmail.com";
-            // let phone = row.insertCell(3);
-            // phone.innerHTML = "111-222-3333";
-            // let created = row.insertCell(4);
-            // created.innerHTML = "";
-            // let actions = row.insertCell(5);
-            // actions.innerHTML = "";
-
-            // Print out <results> info into table format
-            for (let j = 0; j < numContacts; j++) {
-               // Add new row to table
-               let row = table.insertRow(j+1);
-
-               // Populate table fields
-               let fName = row.insertCell(0);
-               fName.innerHTML = jsonObject.results[j].firstName;
-               let lName = row.insertCell(1);
-               lName.innerHTML = jsonObject.results[j].lastName;
-               let email = row.insertCell(2);
-               email.innerHTML = jsonObject.results[j].email;
-               let phone = row.insertCell(3);
-               phone.innerHTML = jsonObject.results[j].phone;
-               let created = row.insertCell(4);
-               created.innerHTML = "";
-               let actions = row.insertCell(5);
-               actions.innerHTML = "";
-            }
+            numContacts = jsonObject.results.length;
          }
       };
       xhr.send(jsonPayload);
    } catch(err) {
       document.getElementById("contact-list").innerHTML = err.message;
+   }
+
+   // Print out <results> info into table format
+   for (let j = 0; j < numContacts; j++) {
+      // Add new row to table
+      let row = table.insertRow(j+1);
+
+      // Populate table fields
+      let fName = row.insertCell(0);
+      fName.innerHTML = jsonObject.results[j].firstName;
+      let lName = row.insertCell(1);
+      lName.innerHTML = jsonObject.results[j].lastName;
+      let email = row.insertCell(2);
+      email.innerHTML = jsonObject.results[j].email;
+      let phone = row.insertCell(3);
+      phone.innerHTML = jsonObject.results[j].phone;
+      let created = row.insertCell(4);
+      created.innerHTML = "";
+      let actions = row.insertCell(5);
+      actions.innerHTML = "";
    }
 }
 
@@ -240,6 +240,10 @@ function addContact() {
   } catch (err) {
     document.getElementById("addContactResult").innerHTML = err.message;
   }
+}
+
+function searchContacts() {
+
 }
 
 function searchColor() {

@@ -12,9 +12,9 @@
       returnWithError($conn->connect_error);
    else {
       // Select columns to send as JSON payload using wildcards w/ search
-      $stmt = $conn->prepare("SELECT firstName, lastName, email, phone FROM Contacts WHERE (firstName like ? OR lastName like ? AND UserID = ?);");
+      $stmt = $conn->prepare("SELECT firstName, lastName, email, phone FROM Contacts WHERE (firstName like ? OR lastName like ? AND UserID = ?) LIMIT ?, ?;");
       $contactName = "%" . $inData["search"] . "%";
-      $stmt->bind_param("ssi", $contactName, $contactName, $inData["userID"]);
+      $stmt->bind_param("ssiii", $contactName, $contactName, $inData["userID"], $inData["offset"], $inData["limit"]);
       $stmt->execute();
       $result = $stmt->get_result();
 
