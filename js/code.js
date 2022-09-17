@@ -5,6 +5,7 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 let search = "";
+let currentPage = 1;
 
 function doLogin() {
   userId = 0;
@@ -145,10 +146,10 @@ function loadContacts() {
       readCookie();
    resetTable();
 
-   let currentPage = 1;
+   // currentPage = document.getElementById("page-number").value;    NEED TO IMPLEMENT PAGE-NUMBER SYSTEM
    let limit = 10;
    let offset = (currentPage - 1) * limit;
-   search = "";
+   search = '';
 
    let table = document.getElementById("contact-list");
    let numContacts = 0;
@@ -166,31 +167,31 @@ function loadContacts() {
          if (this.readyState == 4 && this.status == 200) {
             let jsonObject = JSON.parse(xhr.responseText);
             numContacts = jsonObject.results.length;
+
+            // Print out <results> info into table format
+            for (let j = 0; j < numContacts; j++) {
+               // Add new row to table
+               let row = table.insertRow(j+1);
+
+               // Populate table fields
+               let fName = row.insertCell(0);
+               fName.innerHTML = jsonObject.results[j].firstName;
+               let lName = row.insertCell(1);
+               lName.innerHTML = jsonObject.results[j].lastName;
+               let email = row.insertCell(2);
+               email.innerHTML = jsonObject.results[j].email;
+               let phone = row.insertCell(3);
+               phone.innerHTML = jsonObject.results[j].phone;
+               let created = row.insertCell(4);
+               created.innerHTML = "";
+               let actions = row.insertCell(5);
+               actions.innerHTML = "";
+            }
          }
       };
       xhr.send(jsonPayload);
    } catch(err) {
       document.getElementById("contact-list").innerHTML = err.message;
-   }
-
-   // Print out <results> info into table format
-   for (let j = 0; j < numContacts; j++) {
-      // Add new row to table
-      let row = table.insertRow(j+1);
-
-      // Populate table fields
-      let fName = row.insertCell(0);
-      fName.innerHTML = jsonObject.results[j].firstName;
-      let lName = row.insertCell(1);
-      lName.innerHTML = jsonObject.results[j].lastName;
-      let email = row.insertCell(2);
-      email.innerHTML = jsonObject.results[j].email;
-      let phone = row.insertCell(3);
-      phone.innerHTML = jsonObject.results[j].phone;
-      let created = row.insertCell(4);
-      created.innerHTML = "";
-      let actions = row.insertCell(5);
-      actions.innerHTML = "";
    }
 }
 
