@@ -5,7 +5,7 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 let search = "";
-let currentPage = 1;
+let currentPage = 2;
 
 function doLogin() {
   userId = 0;
@@ -142,8 +142,6 @@ function resetTable() {
 }
 
 function loadContacts() {
-   if (userId <= 0)
-      readCookie();
    resetTable();
 
    // currentPage = document.getElementById("page-number").value;    NEED TO IMPLEMENT PAGE-NUMBER SYSTEM
