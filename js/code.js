@@ -150,10 +150,6 @@ function incPage() {
    loadContacts();
 }
 
-function showPage() {
-   window.alert(currentPage);
-}
-
 function displayButtons() {
    let buttonLocation = document.getElementById("pageButtons");
    buttonLocation.innerHTML = "";
@@ -201,7 +197,7 @@ function loadContacts() {
                let created = row.insertCell(4);
                created.innerHTML = "";
                let actions = row.insertCell(5);
-               actions.innerHTML = '<button type="button" onclick="updateContact();">Update</button>';
+               actions.innerHTML = '<button type="button" onclick="updateContact(' + (j+1) + ', ' + jsonObject.results[j].ID + ');">Update</button>';
                actions.innerHTML += '<button type="button" onclick="deleteContact(' + jsonObject.results[j].ID + ');">Delete</button>';
             }
          }
@@ -212,8 +208,74 @@ function loadContacts() {
    }
 }
 
-function updateContact() {
+function updateContact(rowIndex, contactID) {
+   let table = document.getElementById("contact-list");
+   let row = table.rows[rowIndex];
 
+   // window.alert(row.cells[0].innerHTML);
+   // Change fields in table to fillable-forms
+   row.cells[0].innerHTML = '<input type="text" id="updateFirstName" placeholder="First Name" />';    // First Name
+   row.cells[1].innerHTML = '<input type="text" id="updateLastName" placeholder="Last Name" />';      // Last Name
+   row.cells[2].innerHTML = '<input type="text" id="updateEmail" placeholder="Email" />';             // Email
+   row.cells[3].innerHTML = '<input type="text" id="updatePhone" placeholder="Phone Number" />';      // Phone number
+   row.cells[4].innerHTML = '';                                                                       // TODO: Date created
+
+   // Change "Update" button to "Confirm" or "Deny"
+   row.cells[5].innerHTML = '<button type="button" onclick="confirmUpdate(' + contactID + ');">Confirm</button>';
+   row.cells[5].innerHTML += ' <button type="button" onclick="declineUpdate();">Cancel</button>';
+}
+
+// User clicks "Confirm" button after clicking "Update"
+// Update contact in database and reload table
+function confirmUpdate(contactID) {
+   let contactFirstName = document.getElementById("updateFirstName").value;
+   let contactLastName = document.getElementById("updateLastName").value;
+   let email = document.getElementById("updateEmail").value;
+   let phone = document.getElementById("updatePhone").value;
+
+   // Error-handling for Updating Contact
+   try {
+      // Make sure all form elements are filled in
+      if (typeof contactFirstName === 'string' && contactFirstName.trim() === '') throw "Please fill in all fields";
+      if (typeof contactLastName === 'string' && contactLastName.trim() === '') throw "Please fill in all fields";
+      if (typeof email === 'string' && email.trim() === '') throw "Please fill in all fields";
+      if (typeof phone === 'string' && phone.trim() === '') throw "Please fill in all fields";
+
+      // Make sure email is valid
+      if (validateEmail(email) == false) throw "Please enter a valid email";
+
+      // Make sure phone is valid
+      if (validatePhone(phone) == false) throw "Please enter a valid phone-number";
+   } catch(err) {
+      // TODO: Add error message
+      return;
+   }
+
+   let tmp = {firstName: contactFirstName, lastName: contactLastName, email: email, phone: phone, ID: contactID};
+   let jsonPayload = JSON.stringify(tmp);
+
+   let url = urlBase + "/UpdateContact." + extension;
+
+   let xhr = new XMLHttpRequest();
+   xhr.open("POST", url, true);
+   xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+   try {
+      xhr.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+            document.location.reload();
+            // TODO: Add update confirmation message
+         }
+      };
+      xhr.send(jsonPayload);
+   } catch(err) {
+      // TODO: Add error-handling message
+   }
+}
+
+// User clicked "Decline" button after clicking "Update"
+// Reload table without updating contact
+function declineUpdate() {
+   document.location.reload();
 }
 
 function deleteContact(contactID) {
