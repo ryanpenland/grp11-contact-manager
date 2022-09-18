@@ -208,6 +208,12 @@ function loadContacts() {
    }
 }
 
+function searchContacts() {
+   search = document.getElementById("searchText").value;
+   resetTable();
+   loadContacts();
+}
+
 function updateContact(rowIndex, contactID) {
    let table = document.getElementById("contact-list");
    let row = table.rows[rowIndex];
@@ -303,10 +309,6 @@ function deleteContact(contactID) {
    } catch(err) {
       // TODO: Add error-handling message
    }
-}
-
-function searchContacts() {
-
 }
 
 function addContact() {
