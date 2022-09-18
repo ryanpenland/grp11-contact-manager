@@ -25,7 +25,8 @@ body {
   font-size: 30px;
   width: 35%;
   padding: 20px 40px 40px 40px;
-  border-radius: 25px; /* rounded corners */
+  border-radius: 25px;
+  /* rounded corners */
   margin: auto;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
@@ -63,23 +64,26 @@ input[type="register-text"] {
 
 /* Button Styling and Animation */
 /* From https://codepen.io/rauldronca/pen/mEXomp */
-.btn {
+.centered-btn {
   font-size: 30px;
   border-radius: 25px;
   width: 40%;
   font-family: "Ubuntu", sans-serif;
   cursor: pointer;
+  margin: auto;
 }
-.btn-one {
+
+.fancy-button {
   color: #fff;
   transition: all 0.3s;
   position: relative;
-  margin: auto;
 }
-.btn-one span {
+
+.fancy-button span {
   transition: all 0.3s;
 }
-.btn-one::before {
+
+.fancy-button::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -97,14 +101,17 @@ input[type="register-text"] {
   border-bottom-color: rgba(255, 255, 255, 0.5);
   transform: scale(0.1, 1);
 }
-.btn-one:hover span {
+
+.fancy-button:hover span {
   letter-spacing: 2px;
 }
-.btn-one:hover::before {
+
+.fancy-button:hover::before {
   opacity: 1;
   transform: scale(1, 1);
 }
-.btn-one::after {
+
+.fancy-button::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -115,7 +122,8 @@ input[type="register-text"] {
   transition: all 0.3s;
   background-color: rgba(255, 255, 255, 0.1);
 }
-.btn-one:hover::after {
+
+.fancy-button:hover::after {
   opacity: 0;
   transform: scale(0.1, 1);
 }
@@ -132,17 +140,24 @@ input[type="register-text"] {
 }
 
 /* CONTACTS PAGE STYLES BELOW */
-
 #searchBar {
-  font-size: 10px;
+  font-size: 30px;
   width: 80%;
+  border-radius: 25px;
+  /* rounded corners */
+  margin: auto;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
   background-color: #2f2f2f;
-  border-radius: 25px; /* rounded corners */
 }
 
 #searchText {
-  font-size: 20px;
   border-radius: 25px;
+  font-size: 25px;
+  text-align: left;
+  width: 80%;
+  margin-bottom: 4%;
+  font-family: "Ubuntu", sans-serif;
 }
 
 #searchContactsButton {
@@ -152,10 +167,29 @@ input[type="register-text"] {
   font-family: "Ubuntu", sans-serif;
 }
 
+.search-btn {
+  font-size: 20px;
+  border-radius: 25px;
+  width: 20%;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+  margin: auto;
+}
+
+.add-contact-btn {
+  font-size: 20px;
+  border-radius: 25px;
+  width: 20%;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+  margin: auto;
+}
+
 .styled-table {
   width: 70%;
   border-radius: 25px;
-  margin: 25px 0;
+  margin: auto;
+  padding-bottom: 25px;
   font-size: 20px;
   font-family: "Ubuntu", sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -180,4 +214,26 @@ input[type="register-text"] {
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
+}
+
+input[type="add-contact-text"] {
+  border-radius: 25px;
+  font-size: 20px;
+  text-align: center;
+  width: 45%;
+  margin-bottom: 2%;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* Add contact appear / disapear */
+form {
+  width: 50%;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

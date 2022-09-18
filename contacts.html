@@ -1,28 +1,26 @@
 <html>
-  <head>
-    <title>Contacts</title>
-    <script type="text/javascript" src="js/md5.js"></script>
-    <script type="text/javascript" src="js/code.js"></script>
-    <link href="css/styles.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Ubuntu"
-      rel="stylesheet"
-    />
-  </head>
-  <body onload="load();">
-    <h1 id="title">Contacts</h1>
 
-    <div id="searchBar">
-      <br />
-      <input type="text" id="searchText" />
-      <div class="btn btn-one" onclick="searchContacts();">
-        <span>Search Contacts</span>
-      </div>
-      <br />
-      <span id="colorSearchResult"></span>
-      <p id="colorList"></p>
-      <br /><br />
+<head>
+  <title>Contacts</title>
+  <script type="text/javascript" src="js/md5.js"></script>
+  <script type="text/javascript" src="js/code.js"></script>
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- onload="load();" -->
+  <h1 id="title">Contacts</h1>
+
+  <div id="searchBar">
+    <br />
+    <input type="text" id="searchText" />
+    <div class="search-btn fancy-button" onclick="searchContacts();">
+      <span>Search Contacts</span>
     </div>
+    <span id="colorSearchResult"></span>
+    <p id="colorList"></p>
+    <br />
 
     <table id="contact-list" class="styled-table">
       <thead>
@@ -38,18 +36,23 @@
       <span id="loadContactsResult"></span>
     </table>
 
-    <div id="addContact">
-      <span id="inner-title">ADD CONTACT</span> <br />
-      <input type="text" id="firstName" placeholder="First Name" /> <br />
-      <input type="text" id="lastName" placeholder="Last Name" /> <br />
-      <input type="text" id="email" placeholder="Email" /> <br />
-      <input type="text" id="phone" placeholder="Phone Number" /> <br />
-      <div class="btn btn-one" onclick="addContact();">
+    <div class="add-contact-btn fancy-button" onclick="showAddContact();">
+      <span>Create New Contact</span>
+    </div> <br />
+    <div id="addContact" class="hide">
+      <input type="add-contact-text" id="firstName" placeholder="First Name" /> <br />
+      <input type="add-contact-text" id="lastName" placeholder="Last Name" /> <br />
+      <input type="add-contact-text" id="email" placeholder="Email" /> <br />
+      <input type="add-contact-text" id="phone" placeholder="Phone Number" /> <br />
+      <div class="add-contact-btn fancy-button" onclick="addContact();">
         <span>Add Contact</span>
       </div>
       <span id="addContactResult"></span>
     </div>
+    <br />
+  </div>
 
-    <div id="pageButtons"></div>
-  </body>
+  <div id="pageButtons"></div>
+</body>
+
 </html>
