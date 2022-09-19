@@ -152,18 +152,20 @@ function resetTable() {
 function decPage() {
   currentPage--;
   resetTable();
+  displayButtons();
   loadContacts();
 }
 
 function incPage() {
   currentPage++;
   resetTable();
+  displayButtons();
   loadContacts();
 }
 
 function load() {
   readCookie();
-  // await getNumContacts();
+  getNumContacts();
   loadContacts();
 }
 
@@ -181,6 +183,8 @@ function getNumContacts() {
       if (this.readyState == 4 && this.status == 200) {
         let jsonObject = JSON.parse(xhr.responseText);
         totalContacts = jsonObject.totalContacts;
+
+        displayButtons();
       }
     };
     xhr.send(jsonPayload);
@@ -191,8 +195,7 @@ function getNumContacts() {
 
 function displayButtons() {
   let buttonLocation = document.getElementById("pageButtons");
-  // let maxPages = Math.ceil((totalContacts / LIMIT));
-  let maxPages = 3;
+  let maxPages = Math.ceil((totalContacts / LIMIT));
   buttonLocation.innerHTML = "";
   if (currentPage > 1)
     buttonLocation.innerHTML =
@@ -200,12 +203,9 @@ function displayButtons() {
   if (currentPage < maxPages)
     buttonLocation.innerHTML +=
       '<button type="button" id="increment-button" onclick="incPage();"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button>';
-  
 }
 
 function loadContacts() {
-  displayButtons();
-
   let table = document.getElementById("contact-list");
   let numContacts = 0;
   let offset = (currentPage - 1) * LIMIT;
