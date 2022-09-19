@@ -163,30 +163,7 @@ function incPage() {
 
 function load() {
   readCookie();
-  // await getNumContacts();
   loadContacts();
-}
-
-function getNumContacts() {
-  let tmp = { userID: userId };
-  let jsonPayload = JSON.stringify(tmp);
-
-  let url = urlBase + "/GetNumberOfContacts." + extension;
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-  try {
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        let jsonObject = JSON.parse(xhr.responseText);
-        totalContacts = jsonObject.totalContacts;
-      }
-    };
-    xhr.send(jsonPayload);
-  } catch (err) {
-    // TODO: Add error message
-  }
 }
 
 function displayButtons() {
@@ -200,7 +177,6 @@ function displayButtons() {
   if (currentPage < maxPages)
     buttonLocation.innerHTML +=
       '<button type="button" id="increment-button" onclick="incPage();"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button>';
-  
 }
 
 function loadContacts() {
