@@ -196,10 +196,11 @@ function displayButtons() {
   buttonLocation.innerHTML = "";
   if (currentPage > 1)
     buttonLocation.innerHTML =
-      '<button type="button" onclick="decPage();">Decrement Page</button>';
+      '<button type="button" id="decrement-button" onclick="decPage();"><ion-icon name="chevron-back-circle-outline"></ion-icon></button>';
   if (currentPage < maxPages)
     buttonLocation.innerHTML +=
-      '<button type="button" onclick="incPage();">Increment Page</button>';
+      '<button type="button" id="increment-button" onclick="incPage();"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button>';
+  
 }
 
 function loadContacts() {

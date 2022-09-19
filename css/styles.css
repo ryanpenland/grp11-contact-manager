@@ -62,6 +62,32 @@ input[type="register-text"] {
   font-family: "Ubuntu", sans-serif;
 }
 
+ion-icon {
+  color: #009879;
+  font-size: 36px;
+}
+
+#increment-button
+{
+  background-size: cover;
+  background-color: #2f2f2f;
+  border-color: #2f2f2f;
+  border-style: solid;
+  cursor: pointer;
+  alt: "Next Page";
+}
+
+
+#decrement-button
+{
+  background-size: cover;
+  background-color: #2f2f2f;
+  border-color: #2f2f2f;
+  border-style: solid;
+  cursor: pointer;
+  
+}
+
 /* Button Styling and Animation */
 /* From https://codepen.io/rauldronca/pen/mEXomp */
 .centered-btn {
