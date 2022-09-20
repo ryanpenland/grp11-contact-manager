@@ -22,7 +22,7 @@
       if ($row = $result->fetch_assoc())
          returnWithInfo($row['FirstName'], $row['LastName'], $row['ID']);
       else
-         returnWithError("No user found with that login information.");
+         returnWithError("No user found with that login information");
 
       $stmt->close();
       $conn->close();
