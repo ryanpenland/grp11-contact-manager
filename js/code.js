@@ -73,6 +73,26 @@ function doRegister() {
   lastName = document.getElementById("registerLast").value;
   let login = document.getElementById("registerName").value;
   let password = document.getElementById("registerPassword").value;
+  let confirm = document.getElementById("confirmPassword").value;
+
+  try {
+     if (typeof firstName === "string" && firstName.trim() === "")
+       throw "Please fill in all fields";
+     if (typeof lastName === "string" && lastName.trim() === "")
+       throw "Please fill in all fields";
+     if (typeof login === "string" && login.trim() === "")
+       throw "Please fill in all fields";
+     if (typeof password === "string" && password.trim() === "")
+       throw "Please fill in all fields";
+     if (typeof confirm === "string" && confirm.trim() === "")
+       throw "Please fill in all fields";
+     if ((typeof password === "string" && typeof confirm === "string") && (password !== confirm))
+       throw "Passwords do not match";
+  } catch(err) {
+     document.getElementById("registerResult").innerHTML = err;
+     return;
+  }
+
   let hash = md5( password );
 
   document.getElementById("registerResult").innerHTML = "";
@@ -258,7 +278,7 @@ function loadContacts() {
           let phone = row.insertCell(3);
           phone.innerHTML = jsonObject.results[j].phone;
           let created = row.insertCell(4);
-          created.innerHTML = "";
+          created.innerHTML = jsonObject.results[j].dateCreated;
           let actions = row.insertCell(5);
           actions.innerHTML =
             '<button type="button" onclick="updateContact(' +
@@ -292,6 +312,7 @@ function updateContact(rowIndex, contactID) {
   let lName = row.cells[1].innerHTML;
   let email = row.cells[2].innerHTML;
   let phone = row.cells[3].innerHTML;
+  let created = row.cells[4].innerHTML;
 
   // window.alert(row.cells[0].innerHTML);
   // Change fields in table to fillable-forms
@@ -303,7 +324,6 @@ function updateContact(rowIndex, contactID) {
     '<input type="updateField" id="updateEmail" value="' + email + '" />'; // Email
   row.cells[3].innerHTML =
     '<input type="updateField" id="updatePhone" value="' + phone + '" />'; // Phone number
-  row.cells[4].innerHTML = ""; // TODO: Date created
 
   // Change "Update" button to "Confirm" or "Deny"
   row.cells[5].innerHTML =

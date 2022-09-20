@@ -30,6 +30,7 @@
          $searchResults .= '"lastName": "' . $row["lastName"] . '", ';        // lastName
          $searchResults .= '"email": "' . $row["email"] . '", ';              // email
          $searchResults .= '"phone": "' . $row["phone"] . '", ';              // phone
+         $searchResults .= '"dateCreated": "' . $row["dateCreated"] . '", ';  // dateCreated
          $searchResults .= '"ID": "'. $row["ID"] . '"}';                      // ID
       }
 
