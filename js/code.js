@@ -12,12 +12,6 @@ let currentPage = 1;
 let LIMIT = 10;
 let totalContacts = 0;
 
-function showAddContact() {
-  var text = document.getElementById("addContact");
-  text.classList.toggle("hide");
-  text.classList.toggle("show");
-}
-
 function doLogin() {
   userId = 0;
   firstName = "";
@@ -97,6 +91,21 @@ function doRegister() {
   } catch (err) {
     document.getElementById("registerResult").innerHTML = err.message;
   }
+}
+
+function showPassword() {
+  var x = document.getElementById("registerPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function showAddContact() {
+  var text = document.getElementById("addContact");
+  text.classList.toggle("hide");
+  text.classList.toggle("show");
 }
 
 function saveCookie() {

@@ -26,7 +26,6 @@ body {
   width: 35%;
   padding: 20px 40px 40px 40px;
   border-radius: 25px;
-  /* rounded corners */
   margin: auto;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
@@ -43,6 +42,12 @@ body {
   color: #ffffff;
 }
 
+#showPasswordLabel {
+  font-size: 23px;
+  color: #ffffff;
+  font-family: "Ubuntu", sans-serif;
+}
+
 #footer {
   font-size: 23px;
 }
@@ -52,13 +57,22 @@ body {
 }
 
 /* Input Boxes */
-input[type="login-text"],
+input[type="username"],
 input[type="register-text"] {
   border-radius: 25px;
   font-size: 25px;
   text-align: center;
   width: 80%;
+  font-family: "Ubuntu", sans-serif;
   margin-bottom: 4%;
+}
+
+input[type="password"],
+input[type="text"] {
+  border-radius: 25px;
+  font-size: 25px;
+  text-align: center;
+  width: 80%;
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -67,8 +81,7 @@ ion-icon {
   font-size: 36px;
 }
 
-#increment-button
-{
+#increment-button {
   background-size: cover;
   background-color: #2f2f2f;
   border-color: #2f2f2f;
@@ -77,15 +90,12 @@ ion-icon {
   alt: "Next Page";
 }
 
-
-#decrement-button
-{
+#decrement-button {
   background-size: cover;
   background-color: #2f2f2f;
   border-color: #2f2f2f;
   border-style: solid;
   cursor: pointer;
-  
 }
 
 /* Button Styling and Animation */
@@ -97,6 +107,7 @@ ion-icon {
   font-family: "Ubuntu", sans-serif;
   cursor: pointer;
   margin: auto;
+  margin-top: 4%;
 }
 
 .fancy-button {

@@ -21,7 +21,11 @@
     <label for="registerName" id="registerLabel"><b>Username</b></label><br />
     <input type="register-text" id="registerName" placeholder="" /><br />
     <label for="registerPassword" id="registerLabel"><b>Password</b></label><br />
-    <input type="register-text" id="registerPassword" placeholder="" /><br />
+    <input type="password" id="registerPassword" placeholder="" /><br />
+    <input type="checkbox" id="showPassword" onclick="showPassword()">
+    <label for="showPassword" id="showPasswordLabel">
+      Show Password
+    </label>
     <div class="centered-btn fancy-button" onclick="doRegister();">
       <span>Register</span>
     </div>
