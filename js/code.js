@@ -296,13 +296,13 @@ function updateContact(rowIndex, contactID) {
   // window.alert(row.cells[0].innerHTML);
   // Change fields in table to fillable-forms
   row.cells[0].innerHTML =
-    '<input type="text" id="updateFirstName" value="' + fName + '" />'; // First Name
+    '<input type="updateField" id="updateFirstName" value="' + fName + '" />'; // First Name
   row.cells[1].innerHTML =
-    '<input type="text" id="updateLastName" value="' + lName + '" />'; // Last Name
+    '<input type="updateField" id="updateLastName" value="' + lName + '" />'; // Last Name
   row.cells[2].innerHTML =
-    '<input type="text" id="updateEmail" value="' + email + '" />'; // Email
+    '<input type="updateField" id="updateEmail" value="' + email + '" />'; // Email
   row.cells[3].innerHTML =
-    '<input type="text" id="updatePhone" value="' + phone + '" />'; // Phone number
+    '<input type="updateField" id="updatePhone" value="' + phone + '" />'; // Phone number
   row.cells[4].innerHTML = ""; // TODO: Date created
 
   // Change "Update" button to "Confirm" or "Deny"
