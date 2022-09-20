@@ -114,7 +114,14 @@ function doRegister() {
   try {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        window.location.href = "index.html";
+         let jsonObject = JSON.parse(xhr.responseText);
+         let errMessage = jsonObject.error;
+
+         // Successfully registered, go back to login page
+         if (errMessage == "")
+            window.location.href = "index.html";
+         else
+            document.getElementById("registerResult").innerHTML = errMessage;
       }
     };
     xhr.send(jsonPayload);
