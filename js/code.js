@@ -302,7 +302,7 @@ function loadContacts() {
     };
     xhr.send(jsonPayload);
   } catch (err) {
-    document.getElementById("contact-list").innerHTML = err.message;
+    document.getElementById("loadContactsResult").innerHTML = err.message;
   }
 }
 
