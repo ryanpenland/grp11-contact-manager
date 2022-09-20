@@ -191,7 +191,6 @@ ion-icon {
 #searchText {
   border-radius: 25px;
   font-size: 25px;
-  text-align: left;
   width: 80%;
   margin-bottom: 4%;
   font-family: "Ubuntu", sans-serif;
@@ -223,7 +222,7 @@ ion-icon {
 }
 
 .styled-table {
-  width: 70%;
+  width: 90%;
   border-radius: 25px;
   margin: auto;
   padding-bottom: 25px;
@@ -255,7 +254,7 @@ ion-icon {
 
 input[type="updateField"] {
   border-radius: 25px;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   width: 95%;
   font-family: "Ubuntu", sans-serif;
