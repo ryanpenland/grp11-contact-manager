@@ -292,11 +292,11 @@ function loadContacts() {
             (j + 1) +
             ", " +
             jsonObject.results[j].ID +
-            ');">Update</button>';
+            ');"><ion-icon name="pencil-outline"></ion-icon></button>';
           actions.innerHTML +=
             '<button type="button" onclick="deleteContact(' +
             jsonObject.results[j].ID +
-            ');">Delete</button>';
+            ');"><ion-icon name="trash-outline"></ion-icon></button>';
         }
       }
     };
@@ -336,9 +336,9 @@ function updateContact(rowIndex, contactID) {
   row.cells[5].innerHTML =
     '<button type="button" onclick="confirmUpdate(' +
     contactID +
-    ');">Confirm</button>';
+    ');"><ion-icon name="checkmark-circle-outline"></ion-icon></button>';
   row.cells[5].innerHTML +=
-    ' <button type="button" onclick="declineUpdate();">Cancel</button>';
+    ' <button type="button" onclick="declineUpdate();"><ion-icon name="close-circle-outline"></ion-icon></button>';
 }
 
 // User clicks "Confirm" button after clicking "Update"
