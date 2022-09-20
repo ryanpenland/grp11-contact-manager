@@ -19,12 +19,22 @@ function doLogin() {
 
   let login = document.getElementById("loginName").value;
   let password = document.getElementById("loginPassword").value;
-  //	var hash = md5( password );
+
+  try {
+     if (typeof login === "string" && login.trim() === "")
+      throw "Please fill in all fields";
+     if (typeof password === "string" && password.trim() === "")
+      throw "Please fill in all fields";
+  } catch(err) {
+     document.getElementById("loginResult").innerHTML = err;
+     return;
+  }
+
+  let hash = md5( password );
 
   document.getElementById("loginResult").innerHTML = "";
 
-  let tmp = { login: login, password: password };
-  //	var tmp = {login:login,password:hash};
+  let tmp = { login: login, password: hash };
   let jsonPayload = JSON.stringify(tmp);
 
   let url = urlBase + "/Login." + extension;
@@ -63,7 +73,7 @@ function doRegister() {
   lastName = document.getElementById("registerLast").value;
   let login = document.getElementById("registerName").value;
   let password = document.getElementById("registerPassword").value;
-  //	var hash = md5( password );
+  let hash = md5( password );
 
   document.getElementById("registerResult").innerHTML = "";
 
@@ -71,9 +81,9 @@ function doRegister() {
     firstName: firstName,
     lastName: lastName,
     login: login,
-    password: password,
+    password: hash,
   };
-  //	var tmp = {login:login,password:hash};
+
   let jsonPayload = JSON.stringify(tmp);
 
   let url = urlBase + "/Register." + extension;
@@ -140,7 +150,7 @@ function readCookie() {
   if (userId < 0) {
     window.location.href = "index.html";
   } else {
-    // document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+    document.getElementById("title").innerHTML = firstName + "'s Contacts";
   }
 }
 
@@ -498,7 +508,7 @@ function validateEmail(email) {
 // Code courtesy of w3resources.com
 // Valid phones of the form {XXX XXX XXXX} {XXX.XXX.XXXX} {XXX-XXX-XXXX}
 function validatePhone(phone) {
-  if (phone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))
+  if (phone.match(/^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/))
     return true;
   else return false;
 }
