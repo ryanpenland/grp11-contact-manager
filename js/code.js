@@ -278,17 +278,21 @@ function searchContacts() {
 function updateContact(rowIndex, contactID) {
   let table = document.getElementById("contact-list");
   let row = table.rows[rowIndex];
+  let fName = row.cells[0].innerHTML;
+  let lName = row.cells[1].innerHTML;
+  let email = row.cells[2].innerHTML;
+  let phone = row.cells[3].innerHTML;
 
   // window.alert(row.cells[0].innerHTML);
   // Change fields in table to fillable-forms
   row.cells[0].innerHTML =
-    '<input type="text" id="updateFirstName" placeholder="First Name" />'; // First Name
+    '<input type="text" id="updateFirstName" value="' + fName + '" />'; // First Name
   row.cells[1].innerHTML =
-    '<input type="text" id="updateLastName" placeholder="Last Name" />'; // Last Name
+    '<input type="text" id="updateLastName" value="' + lName + '" />'; // Last Name
   row.cells[2].innerHTML =
-    '<input type="text" id="updateEmail" placeholder="Email" />'; // Email
+    '<input type="text" id="updateEmail" value="' + email + '" />'; // Email
   row.cells[3].innerHTML =
-    '<input type="text" id="updatePhone" placeholder="Phone Number" />'; // Phone number
+    '<input type="text" id="updatePhone" value="' + phone + '" />'; // Phone number
   row.cells[4].innerHTML = ""; // TODO: Date created
 
   // Change "Update" button to "Confirm" or "Deny"
