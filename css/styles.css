@@ -176,6 +176,39 @@ ion-icon {
   color: #e44b50;
 }
 
+/* Register Error Text */
+#registerResult {
+  display: inline-block;
+  font-size: 25px;
+  width: 90%;
+  text-align: center;
+  margin-top: 2%;
+  font-family: "Ubuntu", sans-serif;
+  color: #e44b50;
+}
+
+/* Load-Contacts Error Text */
+#loadContactsResult {
+  display: inline-block;
+  font-size: 25px;
+  width: 90%;
+  text-align: center;
+  margin-top: 2%;
+  font-family: "Ubuntu", sans-serif;
+  color: #e44b50;
+}
+
+/* Add-Contact Error Text */
+#addContactResult {
+  display: inline-block;
+  font-size: 25px;
+  width: 90%;
+  text-align: center;
+  margin-top: 2%;
+  font-family: "Ubuntu", sans-serif;
+  color: #e44b50;
+}
+
 /* CONTACTS PAGE STYLES BELOW */
 #searchBar {
   font-size: 30px;
