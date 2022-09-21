@@ -141,6 +141,20 @@ function showPassword() {
 
 function showAddContact() {
   var text = document.getElementById("addContact");
+  let showContact = document.getElementById("showContactForm");
+
+  // Display 'Create New Contact' or 'Cancel'
+  if (showContact.innerHTML == "Create New Contact")
+      showContact.innerHTML = "Cancel";
+  else if (showContact.innerHTML == "Cancel")
+      showContact.innerHTML = "Create New Contact";
+
+
+  // Clear fields in 'Add Contact' form
+  document.getElementById("firstName").value = "";
+  document.getElementById("lastName").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("phone").value = "";
   document.getElementById("addContactResult").innerHTML = "";
   text.classList.toggle("hide");
   text.classList.toggle("show");
