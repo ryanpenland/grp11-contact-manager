@@ -81,6 +81,10 @@ input[type="text"] {
   font-family: "Ubuntu", sans-serif;
 }
 
+#registerPassword {
+  margin-bottom: 4%;
+}
+
 ion-icon {
   color: #009879;
   font-size: 36px;
