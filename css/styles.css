@@ -42,6 +42,11 @@ body {
   color: #ffffff;
 }
 
+#addContactLabel {
+  font-size: 25px;
+  color: #ffffff;
+}
+
 #showPasswordLabel {
   font-size: 23px;
   color: #ffffff;
