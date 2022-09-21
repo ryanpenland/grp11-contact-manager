@@ -14,7 +14,7 @@
       try {
          $stmt->execute();
       } catch(Exception $e) {
-         returnWithError("A user with that login already exists");
+         returnWithError("A User with that username already exists");
       }
 
       $stmt->close();

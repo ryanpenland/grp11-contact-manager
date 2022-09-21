@@ -141,6 +141,7 @@ function showPassword() {
 
 function showAddContact() {
   var text = document.getElementById("addContact");
+  document.getElementById("addContactResult").innerHTML = "";
   text.classList.toggle("hide");
   text.classList.toggle("show");
 }
