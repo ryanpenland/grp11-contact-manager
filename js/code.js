@@ -377,7 +377,8 @@ function confirmUpdate(contactID) {
       throw "Please fill in all fields";
 
     // Make sure email is valid
-    if (validateEmail(email) == false) throw "Please enter a valid email";
+    if (validateEmail(email) == false)
+      throw "Please enter a valid email";
 
     // Make sure phone is valid
     if (validatePhone(phone) == false)
@@ -417,7 +418,8 @@ function confirmUpdate(contactID) {
 // User clicked "Decline" button after clicking "Update"
 // Reload table without updating contact
 function declineUpdate() {
-  document.location.reload();
+  resetTable();
+  loadContacts();
 }
 
 function deleteContact(contactID) {
