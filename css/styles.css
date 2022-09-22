@@ -57,10 +57,6 @@ body {
   font-size: 23px;
 }
 
-#searchText {
-  font-size: 30px;
-}
-
 /* Input Boxes */
 input[type="username"],
 input[type="register-text"] {
@@ -238,13 +234,6 @@ ion-icon {
   font-family: "Ubuntu", sans-serif;
 }
 
-#searchContactsButton {
-  font-size: 20px;
-  border-radius: 25px;
-  width: 30%;
-  font-family: "Ubuntu", sans-serif;
-}
-
 .search-btn {
   font-size: 20px;
   border-radius: 25px;
@@ -263,6 +252,16 @@ ion-icon {
   margin: auto;
 }
 
+.logout-btn {
+  font-size: 30px;
+  width: 10%;
+  margin: auto;
+  border-radius: 25px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+}
+
 .styled-table {
   width: 90%;
   border-radius: 25px;
@@ -274,7 +273,7 @@ ion-icon {
 }
 
 /* Table header  */
-.styled-table thead tr {
+.styled-table th {
   background-color: #009879;
   color: #ffffff;
   text-align: center;
@@ -282,10 +281,13 @@ ion-icon {
 
 /* Table body */
 .styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #242E38;
   font-weight: bold;
-  color: #009879;
   background-color: #2f2f2f;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #2A3643;
 }
 
 /* table inner padding */

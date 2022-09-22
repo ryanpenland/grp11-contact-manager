@@ -9,11 +9,15 @@
 </head>
 
 <body onload="load();">
-  <h1 id="title"></h1> <button type="button" onclick="doLogout();">Logout</button>
+  <h1 id="title"></h1>
 
   <div id="searchBar">
     <br />
-    <input type="text" id="searchText" placeholder="Search..."/>
+    <div class="logout-btn fancy-button" onclick="doLogout();">
+      <span>Logout</span>
+    </div>
+    <br />
+    <input type="text" id="searchText" placeholder="Search..." />
     <div class="search-btn fancy-button" onclick="searchContacts();">
       <span>Search Contacts</span>
     </div>
@@ -55,8 +59,8 @@
         <span>Add Contact</span>
       </div>
       <span id="addContactResult"></span>
-    </div>
-    <br />
+    </div> <br />
+
   </div>
 
 
