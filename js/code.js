@@ -260,10 +260,10 @@ function displayButtons() {
   buttonLocation.innerHTML = "";
   if (currentPage > 1)
     buttonLocation.innerHTML =
-      '<button type="button" id="decrement-button" onclick="decPage();"><ion-icon name="chevron-back-circle-outline"></ion-icon></button>';
+      '<button class="contacts-btn" id="decrement-button" onclick="decPage();"><ion-icon name="chevron-back-circle-outline"></ion-icon></button>';
   if (currentPage < maxPages)
     buttonLocation.innerHTML +=
-      '<button type="button" id="increment-button" onclick="incPage();"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button>';
+      '<button class="contacts-btn" id="increment-button" onclick="incPage();"><ion-icon name="chevron-forward-circle-outline"></ion-icon></button>';
 }
 
 function loadContacts() {
@@ -303,13 +303,13 @@ function loadContacts() {
           created.innerHTML = jsonObject.results[j].dateCreated;
           let actions = row.insertCell(5);
           actions.innerHTML =
-            '<button type="button" onclick="updateContact(' +
+            '<button class="contacts-btn" onclick="updateContact(' +
             (j + 1) +
             ", " +
             jsonObject.results[j].ID +
             ');"><ion-icon name="pencil-outline"></ion-icon></button>';
           actions.innerHTML +=
-            '<button type="button" onclick="deleteContact(' +
+            '<button class="contacts-btn" onclick="deleteContact(' +
             jsonObject.results[j].ID +
             ');"><ion-icon name="trash-outline"></ion-icon></button>';
         }
@@ -349,11 +349,11 @@ function updateContact(rowIndex, contactID) {
 
   // Change "Update" button to "Confirm" or "Deny"
   row.cells[5].innerHTML =
-    '<button type="button" onclick="confirmUpdate(' +
+    '<button class="contacts-btn" onclick="confirmUpdate(' +
     contactID +
     ');"><ion-icon name="checkmark-circle-outline"></ion-icon></button>';
   row.cells[5].innerHTML +=
-    ' <button type="button" onclick="declineUpdate();"><ion-icon name="close-circle-outline"></ion-icon></button>';
+    ' <button class="contacts-btn" onclick="declineUpdate();"><ion-icon name="close-circle-outline"></ion-icon></button>';
 }
 
 // User clicks "Confirm" button after clicking "Update"

@@ -81,28 +81,6 @@ input[type="text"] {
   margin-bottom: 4%;
 }
 
-ion-icon {
-  color: #009879;
-  font-size: 36px;
-}
-
-#increment-button {
-  background-size: cover;
-  background-color: #2f2f2f;
-  border-color: #2f2f2f;
-  border-style: solid;
-  cursor: pointer;
-  alt: "Next Page";
-}
-
-#decrement-button {
-  background-size: cover;
-  background-color: #2f2f2f;
-  border-color: #2f2f2f;
-  border-style: solid;
-  cursor: pointer;
-}
-
 /* Button Styling and Animation */
 /* From https://codepen.io/rauldronca/pen/mEXomp */
 .centered-btn {
@@ -215,15 +193,14 @@ ion-icon {
 }
 
 /* CONTACTS PAGE STYLES BELOW */
-#searchBar {
+#contactsDiv {
   font-size: 30px;
   width: 80%;
   border-radius: 25px;
-  /* rounded corners */
   margin: auto;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
-  background-color: #2f2f2f;
+  background-color: #2F2F2F;
 }
 
 #searchText {
@@ -262,14 +239,19 @@ ion-icon {
   cursor: pointer;
 }
 
+.contacts-btn {
+  color: #009879;
+  font-size: 36px;
+  cursor: pointer;
+  border-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .styled-table {
   width: 90%;
-  border-radius: 25px;
   margin: auto;
-  padding-bottom: 25px;
   font-size: 20px;
   font-family: "Ubuntu", sans-serif;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Table header  */
@@ -280,14 +262,13 @@ ion-icon {
 }
 
 /* Table body */
-.styled-table tbody tr {
-  border-bottom: 1px solid #242E38;
-  font-weight: bold;
-  background-color: #2f2f2f;
+.styled-table tr {
+  color: #ffffff;
+  background-color: #383838;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
-  background-color: #2A3643;
+.styled-table tr:nth-of-type(even) {
+  background-color: #454545;
 }
 
 /* table inner padding */
