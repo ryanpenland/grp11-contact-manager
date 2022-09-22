@@ -12,7 +12,9 @@
       $stmt->bind_param("ssss", $userData["firstName"], $userData["lastName"], $userData["login"], $userData["password"]);
 
       try {
+         // No error, send back JSON with empty error field
          $stmt->execute();
+         returnWithError("");
       } catch(Exception $e) {
          returnWithError("A User with that username already exists");
       }
